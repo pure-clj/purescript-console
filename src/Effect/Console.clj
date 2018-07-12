@@ -1,7 +1,7 @@
 (ns Effect.Console._foreign)
 
 (defn log [s]
-  (fn []
+  (fn [& _]
     (println s)
     {}))
 
@@ -9,7 +9,7 @@
 (def info log)
 
 (defn error [s]
-  (fn []
+  (fn [& _]
     (binding [*out* *err*]
       (println s))
     {}))
